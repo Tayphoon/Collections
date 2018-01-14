@@ -16,13 +16,11 @@ public protocol TableViewModel {
     
     func numberOfItemsInSection(_ section: Int) -> Int
     
-    func cellClassForIndexPath(_ indexPath: IndexPath) -> Swift.AnyClass
-    
     func reuseIdentifierForCellAtIndexPath(_ indexPath: IndexPath) -> String
     
     func heightForItemAtIndexPath(_ indexPath: IndexPath, constrainedToSize size: CGSize) -> CGSize
     
-    func itemAtIndexPath(_ indexPath: IndexPath) -> Any
+    func itemAtIndexPath(_ indexPath: IndexPath) -> Any?
     
     func indexPathOfObject(_ object: Any) -> IndexPath?
 }

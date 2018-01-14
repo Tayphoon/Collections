@@ -1,5 +1,5 @@
 //
-//  CollectionCell.swift
+//  ObjectCollectionModel.swift
 //  Collections
 //
 //  Created by Tayphoon on 14/01/2018.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol CollectionCell {
-    var item: Any { get set }
+public protocol ObjectCollectionModel : CollectionViewModel {
+    
 }

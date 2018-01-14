@@ -11,10 +11,9 @@ import UIKit
 open class CollectionController: UIViewController {
     private var _collectionView: UICollectionView?
     
-    
-    public var viewModel: CollectionViewModel? {
+    public var viewModel: CollectionViewModel {
         willSet {
-            self.viewModel?.delegate = self
+            self.viewModel.delegate = self
         }
     }
     
@@ -34,6 +33,16 @@ open class CollectionController: UIViewController {
         }
     }
     
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(viewModel:) has not been implemented")
+    }
+
+    public init(viewModel: CollectionViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,25 +55,28 @@ open class CollectionController: UIViewController {
 extension CollectionController : UICollectionViewDataSource, UICollectionViewDelegate {
     
     public func numberOfSections() -> Int {
-        if let viewModel = self.viewModel {
-            return viewModel.numberOfSections()
-        }
-        
-        return 0
+        return self.viewModel.numberOfSections()
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let viewModel = self.viewModel {
-            return viewModel.numberOfItemsInSection(section)
-        }
-        
-        return 0
+        return self.viewModel.numberOfItemsInSection(section)
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell: UICollectionViewCell = UICollectionViewCell()
-        if let viewModel = self.viewModel  {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.reuseIdentifierForCellAtIndexPath(indexPath), for: indexPath)
+        
+        var item = self.viewModel.itemAtIndexPath(indexPath)
+        var reuseIdentifier = self.viewModel.reuseIdentifierForCellAtIndexPath(indexPath)
+        
+        if let cellObject = item as? CollectionCellObject {
+            reuseIdentifier = cellObject.reuseIdentifier
+            item = cellObject.item
+            collectionView.register(cellObject.cellClass, forCellWithReuseIdentifier: cellObject.reuseIdentifier)
+        }
+        
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        
+        if var collectionCell = cell as? CollectionCell {
+            collectionCell.item = item
         }
         
         return cell
@@ -81,11 +93,11 @@ extension CollectionController : CollectionViewModelDelegate {
         
     }
     
-    public func model(_ model: CollectionViewModel, didChangeSectionAtIndex sectionIndex: UInt, forChangeType type: UInt) {
+    public func model(_ model: CollectionViewModel, didChangeSectionAtIndex sectionIndex: Int, forChangeType type: Int) {
         
     }
     
-    public func model(_ model: CollectionViewModel, didChangeObject object: Any, atIndexPath indexPath: IndexPath, forChangeType type: UInt, newIndexPath: IndexPath) {
+    public func model(_ model: CollectionViewModel, didChangeObject object: Any, atIndexPath indexPath: IndexPath, forChangeType type: Int, newIndexPath: IndexPath) {
         
     }
     

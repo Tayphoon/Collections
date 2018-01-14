@@ -30,14 +30,14 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |core|
     core.public_header_files = 'Collections/Collections.h', 'Collections/Core/**/*.{h}'
-    core.source_files = 'Collections/CollectionsConstants.h', 'Collections/Core/**/*.{h,m}'
+    core.source_files = 'Collections/CollectionsConstants.h', 'Collections/Core/**/*.{h,swift}'
 
     core.frameworks = 'UIKit'
   end
 
   s.subspec 'CoreData' do |cdos|
     cdos.public_header_files = 'Collections/CoreData/**/*.{h}'
-    cdos.source_files = 'Collections/CoreData/**/*.{h,m}'
+    cdos.source_files = 'Collections/CoreData/**/*.{h,swift}'
 
     cdos.dependency 'Collections/Core'
     cdos.frameworks = 'CoreData'
