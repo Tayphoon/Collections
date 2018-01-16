@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Collections
 
 /**
  *  View 
  *	
  */
 
-class LeftMenuViewController: UIViewController, LeftMenuViewInput {
+class LeftMenuViewController: TableController, LeftMenuViewInput {
 	
 	var output: LeftMenuViewOutput?
 

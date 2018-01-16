@@ -16,7 +16,8 @@ import UIKit
 class LeftMenuAssembly {
 
     static func createModule() -> UIViewController {
-        let view = LeftMenuViewController()
+        let viewModel = LeftMenuViewModel()
+        let view = LeftMenuViewController(viewModel: viewModel)
         let interactor = LeftMenuInteractor()
         let presenter = LeftMenuPresenter()
         let router = LeftMenuRouter()

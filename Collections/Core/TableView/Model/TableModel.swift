@@ -18,10 +18,10 @@ public protocol TableModel : TableViewModel {
 public extension TableModel {
     
     public func numberOfSections() -> Int {
-        return 0
+        return 1
     }
     
-    public func numberOfItemsInSection(_ section: UInt32) -> Int {
+    public func numberOfItemsInSection(_ section: Int) -> Int {
         return self.items.count
     }
     
@@ -31,5 +31,13 @@ public extension TableModel {
         }
         
         return nil
+    }
+    
+    public func indexPathOfObject(_ object: Any) -> IndexPath? {
+        return nil
+    }
+    
+    public func updateModelWithCompletion(_ completion: ((Error) -> Swift.Void)?) {
+        
     }
 }

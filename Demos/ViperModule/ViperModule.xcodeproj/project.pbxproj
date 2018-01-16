@@ -22,6 +22,7 @@
 		7304C0E3200E87C6002F0AB0 /* LeftMenuInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C0D9200E87C6002F0AB0 /* LeftMenuInteractorOutput.swift */; };
 		7304C0E4200E87C6002F0AB0 /* LeftMenuInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C0DA200E87C6002F0AB0 /* LeftMenuInteractorInput.swift */; };
 		7304C0E5200E87C6002F0AB0 /* LeftMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C0DB200E87C6002F0AB0 /* LeftMenuInteractor.swift */; };
+		7304C0E7200E8FE3002F0AB0 /* LeftMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C0E6200E8FE3002F0AB0 /* LeftMenuViewModel.swift */; };
 		92CDADD3FD439F9C3ADB7D19 /* Pods_ViperModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6483C92AAD6B7FF22D2ECE9 /* Pods_ViperModule.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		7304C0D9200E87C6002F0AB0 /* LeftMenuInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuInteractorOutput.swift; sourceTree = "<group>"; };
 		7304C0DA200E87C6002F0AB0 /* LeftMenuInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuInteractorInput.swift; sourceTree = "<group>"; };
 		7304C0DB200E87C6002F0AB0 /* LeftMenuInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuInteractor.swift; sourceTree = "<group>"; };
+		7304C0E6200E8FE3002F0AB0 /* LeftMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewModel.swift; sourceTree = "<group>"; };
 		ACBACF58805C8BBFC4422B70 /* Pods-ViperModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViperModule.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViperModule/Pods-ViperModule.release.xcconfig"; sourceTree = "<group>"; };
 		B6483C92AAD6B7FF22D2ECE9 /* Pods_ViperModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViperModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8EAB8B2A6191FE6DE0F3EEC /* Pods-ViperModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViperModule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViperModule/Pods-ViperModule.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				7304C0D0200E87C6002F0AB0 /* LeftMenuViewOutput.swift */,
 				7304C0D1200E87C6002F0AB0 /* LeftMenuViewInput.swift */,
 				7304C0D2200E87C6002F0AB0 /* LeftMenuViewController.swift */,
+				7304C0E6200E8FE3002F0AB0 /* LeftMenuViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				7304C0E3200E87C6002F0AB0 /* LeftMenuInteractorOutput.swift in Sources */,
 				7304C0DF200E87C6002F0AB0 /* LeftMenuViewController.swift in Sources */,
 				7304C0E2200E87C6002F0AB0 /* LeftMenuRouter.swift in Sources */,
+				7304C0E7200E8FE3002F0AB0 /* LeftMenuViewModel.swift in Sources */,
 				7304C0DD200E87C6002F0AB0 /* LeftMenuViewOutput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

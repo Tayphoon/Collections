@@ -20,7 +20,7 @@ public extension CollectionModel {
         return 0
     }
     
-    public func numberOfItemsInSection(_ section: UInt32) -> Int {
+    public func numberOfItemsInSection(_ section: Int) -> Int {
         return self.items.count
     }
     

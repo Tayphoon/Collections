@@ -29,8 +29,7 @@ Pod::Spec.new do |s|
   s.default_subspecs = 'Core'
 
   s.subspec 'Core' do |core|
-    core.public_header_files = 'Collections/Collections.h', 'Collections/Core/**/*.{h}'
-    core.source_files = 'Collections/CollectionConstants.h', 'Collections/Core/**/*.{h,swift}'
+    core.source_files = 'Collections/CollectionConstants.swift', 'Collections/Core/**/*.{h,swift}'
 
     core.frameworks = 'UIKit'
   end
