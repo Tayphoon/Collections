@@ -1,0 +1,18 @@
+PODS:
+  - Collections (0.1.1):
+    - Collections/Core (= 0.1.1)
+  - Collections/Core (0.1.1)
+
+DEPENDENCIES:
+  - Collections (from `../../`)
+
+EXTERNAL SOURCES:
+  Collections:
+    :path: ../../
+
+SPEC CHECKSUMS:
+  Collections: 559626ada191d5374a6cb65d1ee60796b79e2873
+
+PODFILE CHECKSUM: 407aa7d66d7ee6684d4f143fc9a1775154af91de
+
+COCOAPODS: 1.3.1

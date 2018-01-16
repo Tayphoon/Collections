@@ -23,14 +23,14 @@ Pod::Spec.new do |s|
   s.author           = { "Tayphoon" => "tayphoon.company@gmail.com" }
   s.source           = { :git => "https://github.com/Tayphoon/Collections.git", :tag => s.version }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.requires_arc = true
 
   s.default_subspecs = 'Core'
 
   s.subspec 'Core' do |core|
     core.public_header_files = 'Collections/Collections.h', 'Collections/Core/**/*.{h}'
-    core.source_files = 'Collections/CollectionsConstants.h', 'Collections/Core/**/*.{h,swift}'
+    core.source_files = 'Collections/CollectionConstants.h', 'Collections/Core/**/*.{h,swift}'
 
     core.frameworks = 'UIKit'
   end

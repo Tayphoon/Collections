@@ -1,0 +1,8 @@
+project 'ViperModule'
+workspace '../Demos'
+
+target :'ViperModule' do
+  platform :ios, '9.0'
+  use_frameworks!
+  pod 'Collections', :path => '../../'
+end
