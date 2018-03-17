@@ -1,8 +1,5 @@
 language: swift
 osx_image: xcode9.2
-xcode_project: Collections.xcodeproj
-xcode_scheme: Collections
-xcode_sdk: iphonesimulator8.4
 
 branches:
   only:
@@ -10,4 +7,4 @@ branches:
   - development
   
 script:
-- xcodebuild clean build test -project Collections.xcodeproj -scheme Collections
+- xcodebuild clean build test -project Collections.xcodeproj -scheme Collections -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3'
