@@ -36,8 +36,4 @@ public extension TableModel {
     public func indexPathOfObject(_ object: Any) -> IndexPath? {
         return nil
     }
-    
-    public func updateModelWithCompletion(_ completion: ((Error) -> Swift.Void)?) {
-        
-    }
 }

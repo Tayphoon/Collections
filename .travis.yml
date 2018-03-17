@@ -4,4 +4,4 @@ branches:
   only:
   - master
   - development
-script: scan --scheme "CollectionsTests"
+script: scan --scheme "Collections"
