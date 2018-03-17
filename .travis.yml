@@ -1,7 +1,10 @@
 language: swift
 osx_image: xcode9.2
+xcode_project: Collections.xcodeproj
+xcode_scheme: Collections
+xcode_sdk: iphonesimulator8.4
+
 branches:
   only:
   - master
   - development
-script: scan --scheme "Collections"
