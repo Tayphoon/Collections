@@ -26,20 +26,10 @@ open class TableController: UIViewController {
         }
     }
     
-    public var viewModel: TableViewModel {
+    public var viewModel: TableViewModel? {
         willSet {
-            self.viewModel.delegate = self
+            self.viewModel?.delegate = self
         }
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(viewModel:) has not been implemented")
-    }
-    
-    public init(viewModel: TableViewModel) {
-        self.viewModel = viewModel
-        
-        super.init(nibName: nil, bundle: nil)
     }
     
     open override func viewDidLoad() {
@@ -48,22 +38,21 @@ open class TableController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
-
 }
 
 extension TableController : UITableViewDataSource, UITableViewDelegate {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel.numberOfSections()
+        return self.viewModel?.numberOfSections() ?? 0
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.numberOfItemsInSection(section)
+        return self.viewModel?.numberOfItemsInSection(section) ?? 0
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var item = self.viewModel.itemAtIndexPath(indexPath)
-        var reuseIdentifier = self.viewModel.reuseIdentifierForCellAtIndexPath(indexPath)
+        var item = self.viewModel?.itemAtIndexPath(indexPath)
+        var reuseIdentifier = self.viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)
         
         if let cellObject = item as? CollectionCellObject {
             reuseIdentifier = cellObject.reuseIdentifier
@@ -71,7 +60,7 @@ extension TableController : UITableViewDataSource, UITableViewDelegate {
             tableView.register(cellObject.cellClass, forCellReuseIdentifier: cellObject.reuseIdentifier)
         }
         
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier!, for: indexPath)
         
         if var collectionCell = cell as? CollectionCell {
             collectionCell.item = item
@@ -105,7 +94,21 @@ extension TableController : CollectionViewModelDelegate {
     }
     
     public func model(_ model: CollectionViewModel, didChangeObject object: Any, atIndexPath indexPath: IndexPath, forChangeType type: Int, newIndexPath: IndexPath) {
-        
+        switch type {
+        case CollectionsChangeType.insert.rawValue:
+            self.tableView.insertRows(at: [indexPath], with: .automatic)
+        case CollectionsChangeType.update.rawValue:
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        case CollectionsChangeType.delete.rawValue:
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        case CollectionsChangeType.move.rawValue:
+            if indexPath != newIndexPath {
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+           }
+        default:
+            break
+        }
     }
     
     public func modelDidChangeContent(_ model: CollectionViewModel) {
