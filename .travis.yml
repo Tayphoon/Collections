@@ -8,3 +8,6 @@ branches:
   only:
   - master
   - development
+  
+script:
+- xcodebuild clean build test -project Collections.xcodeproj -scheme Collections
