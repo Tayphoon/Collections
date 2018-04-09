@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol CollectionViewModelDelegate {
+public protocol CollectionViewModelDelegate: class {
     
     func modelDidChanged(_ model: CollectionViewModel)
     
@@ -23,7 +23,7 @@ public protocol CollectionViewModelDelegate {
 
 public protocol CollectionViewModel {
     
-    var delegate: CollectionViewModelDelegate? { get set }
+    weak var delegate: CollectionViewModelDelegate? { get set }
     
     func numberOfSections() -> Int
 
