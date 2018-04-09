@@ -23,7 +23,7 @@ public protocol CollectionViewModelDelegate: class {
 
 public protocol CollectionViewModel {
     
-    weak var delegate: CollectionViewModelDelegate? { get set }
+    var delegate: CollectionViewModelDelegate? { get set }
     
     func numberOfSections() -> Int
 

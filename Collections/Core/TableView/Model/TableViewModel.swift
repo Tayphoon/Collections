@@ -10,7 +10,7 @@ import Foundation
 
 public protocol TableViewModel {
     
-    weak var delegate: CollectionViewModelDelegate? { get set }
+    var delegate: CollectionViewModelDelegate? { get set }
     
     func numberOfSections() -> Int
     
