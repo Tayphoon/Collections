@@ -34,8 +34,6 @@ public protocol CollectionViewModel {
     func reuseIdentifierForCellAtIndexPath(_ indexPath: IndexPath) -> String
     
     func reuseIdentifierForSupplementaryElementOfKind(_ kind: String, atIndexPath indexPath: IndexPath) -> String
-
-    func sizeForItemAtIndexPath(_ indexPath: IndexPath, constrainedToSize size: CGSize) -> CGSize
     
     func itemAtIndexPath(_ indexPath: IndexPath) -> Any?
     
