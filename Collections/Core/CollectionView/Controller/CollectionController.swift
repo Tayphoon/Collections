@@ -40,7 +40,7 @@ open class CollectionController: UIViewController {
         self.collectionView.dataSource = self
     }
 
-    internal func configureCollectionViewLayoutConstraints() {
+    public func configureCollectionViewLayoutConstraints() {
         self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor)
         self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
         self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
