@@ -39,7 +39,7 @@ open class TableController: UIViewController {
         self.tableView.dataSource = self
     }
 
-    public func configureTableViewLayoutConstraints() {
+    open func configureTableViewLayoutConstraints() {
         self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor)
         self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
         self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
