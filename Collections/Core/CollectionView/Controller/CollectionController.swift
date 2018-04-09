@@ -39,6 +39,13 @@ open class CollectionController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
+
+    internal func configureCollectionViewLayoutConstraints() {
+        self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor)
+        self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+        self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+    }
 }
 
 extension CollectionController : UICollectionViewDataSource, UICollectionViewDelegate {
@@ -92,16 +99,5 @@ extension CollectionController : CollectionViewModelDelegate {
     
     public func modelDidChangeContent(_ model: CollectionViewModel) {
         
-    }
-}
-
-/// Layout extension.
-private extension CollectionController {
-    
-    private func configureCollectionViewLayoutConstraints() {
-        self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor)
-        self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-        self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-        self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
     }
 }

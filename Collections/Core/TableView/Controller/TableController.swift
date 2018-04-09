@@ -38,6 +38,13 @@ open class TableController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
+
+    internal func configureTableViewLayoutConstraints() {
+        self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor)
+        self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+        self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+    }
 }
 
 extension TableController : UITableViewDataSource, UITableViewDelegate {
@@ -113,15 +120,5 @@ extension TableController : CollectionViewModelDelegate {
     
     public func modelDidChangeContent(_ model: CollectionViewModel) {
         self.tableView.endUpdates()
-    }
-}
-
-extension TableController {
-    
-    private func configureTableViewLayoutConstraints() {
-        self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor)
-        self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-        self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-        self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
     }
 }
