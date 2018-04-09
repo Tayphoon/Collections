@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol CollectionCell {
+public protocol CollectionCell: class {
     var item: Any? { get set }
 }

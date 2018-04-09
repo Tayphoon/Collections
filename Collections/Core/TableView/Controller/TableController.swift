@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class TableController: UIViewController {
+open class TableController<T>: UIViewController, UITableViewDelegate, UITableViewDataSource where T: TableViewModel  {
     private var _tableView: UITableView?
 
     public var tableView: UITableView {
@@ -26,7 +26,7 @@ open class TableController: UIViewController {
         }
     }
     
-    public var viewModel: TableViewModel? {
+    public var viewModel: T? {
         willSet {
             self.viewModel?.delegate = self
         }
@@ -39,41 +39,38 @@ open class TableController: UIViewController {
         self.tableView.dataSource = self
     }
 
-    open func configureTableViewLayoutConstraints() {
-        self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor)
-        self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-        self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-        self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-    }
-}
-
-extension TableController : UITableViewDataSource, UITableViewDelegate {
-    
     public func numberOfSections(in tableView: UITableView) -> Int {
         return self.viewModel?.numberOfSections() ?? 0
     }
-    
+
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel?.numberOfItemsInSection(section) ?? 0
     }
-    
+
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var item = self.viewModel?.itemAtIndexPath(indexPath)
         var reuseIdentifier = self.viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)
-        
+
         if let cellObject = item as? CollectionCellObject {
             reuseIdentifier = cellObject.reuseIdentifier
             item = cellObject.item
             tableView.register(cellObject.cellClass, forCellReuseIdentifier: cellObject.reuseIdentifier)
         }
-        
+
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier!, for: indexPath)
-        
-        if var collectionCell = cell as? CollectionCell {
+
+        if let collectionCell = cell as? CollectionCell {
             collectionCell.item = item
         }
-        
+
         return cell
+    }
+
+    open func configureTableViewLayoutConstraints() {
+        self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor)
+        self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+        self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
     }
 }
 
