@@ -20,6 +20,10 @@
 		735A00D2200AB89B00AA2098 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A00D1200AB89B00AA2098 /* CollectionCell.swift */; };
 		735A00D4200ABA4A00AA2098 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A00D3200ABA4A00AA2098 /* TableViewModel.swift */; };
 		735A00D6200ABBDE00AA2098 /* TableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A00D5200ABBDE00AA2098 /* TableModel.swift */; };
+		73AB125A207E4FE400B67C22 /* CollectionSectionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB1259207E4FE400B67C22 /* CollectionSectionObject.swift */; };
+		73AB125C207E50D200B67C22 /* SupplementaryViewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB125B207E50D200B67C22 /* SupplementaryViewObject.swift */; };
+		73AB125F207E527100B67C22 /* CollectionObjectBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB125E207E527100B67C22 /* CollectionObjectBuilder.swift */; };
+		73AB1261207E545600B67C22 /* CollectionBaseObjectBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB1260207E545600B67C22 /* CollectionBaseObjectBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		735A00D1200AB89B00AA2098 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		735A00D3200ABA4A00AA2098 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		735A00D5200ABBDE00AA2098 /* TableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableModel.swift; sourceTree = "<group>"; };
+		73AB1259207E4FE400B67C22 /* CollectionSectionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSectionObject.swift; sourceTree = "<group>"; };
+		73AB125B207E50D200B67C22 /* SupplementaryViewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryViewObject.swift; sourceTree = "<group>"; };
+		73AB125E207E527100B67C22 /* CollectionObjectBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionObjectBuilder.swift; sourceTree = "<group>"; };
+		73AB1260207E545600B67C22 /* CollectionBaseObjectBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBaseObjectBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +125,11 @@
 			children = (
 				735A00BD200A9C6500AA2098 /* CollectionView */,
 				735A00BE200A9C6500AA2098 /* TableView */,
+				73AB125D207E51E800B67C22 /* Builder */,
 				735A00D1200AB89B00AA2098 /* CollectionCell.swift */,
 				7342C0CC200BAAEC00E18021 /* CollectionCellObject.swift */,
+				73AB125B207E50D200B67C22 /* SupplementaryViewObject.swift */,
+				73AB1259207E4FE400B67C22 /* CollectionSectionObject.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -184,6 +195,15 @@
 				7342C0CE200BAE4F00E18021 /* TableController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		73AB125D207E51E800B67C22 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				73AB125E207E527100B67C22 /* CollectionObjectBuilder.swift */,
+				73AB1260207E545600B67C22 /* CollectionBaseObjectBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,10 +317,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73AB125C207E50D200B67C22 /* SupplementaryViewObject.swift in Sources */,
 				7342C0CB200BAAAA00E18021 /* ObjectCollectionModel.swift in Sources */,
+				73AB125F207E527100B67C22 /* CollectionObjectBuilder.swift in Sources */,
+				73AB1261207E545600B67C22 /* CollectionBaseObjectBuilder.swift in Sources */,
 				735A00C7200AA01700AA2098 /* CollectionViewModel.swift in Sources */,
 				735A00D4200ABA4A00AA2098 /* TableViewModel.swift in Sources */,
 				7342C0D1200BB02200E18021 /* CollectionConstants.swift in Sources */,
+				73AB125A207E4FE400B67C22 /* CollectionSectionObject.swift in Sources */,
 				7342C0CF200BAE4F00E18021 /* TableController.swift in Sources */,
 				735A00D6200ABBDE00AA2098 /* TableModel.swift in Sources */,
 				735A00CB200AAFFE00AA2098 /* CollectionController.swift in Sources */,
