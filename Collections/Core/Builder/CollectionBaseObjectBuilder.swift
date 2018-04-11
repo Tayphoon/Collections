@@ -8,8 +8,12 @@
 
 import Foundation
 
-open class CollectionBaseObjectBuilder<U, C: CollectionCellObject, S: CollectionSectionObject>: CollectionObjectBuilder {
+open class CollectionBaseObjectBuilder<U, S: CollectionSectionObject, C: CollectionCellObject>: CollectionObjectBuilder {
     public typealias T = U
+
+    public init() {
+
+    }
 
     open func buildSectionObjects(for items: [U]) -> [CollectionSectionObject]? {
 
