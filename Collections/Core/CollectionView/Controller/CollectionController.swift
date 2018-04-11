@@ -11,13 +11,13 @@ import UIKit
 open class CollectionController<T>: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate where T: CollectionViewModel {
     private var _collectionView: UICollectionView?
     
-    public var viewModel: T? {
+    open var viewModel: T? {
         willSet {
             self.viewModel?.delegate = self
         }
     }
     
-    public var collectionView: UICollectionView {
+    open var collectionView: UICollectionView {
         get {
             if(_collectionView == nil) {
                 let collectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -40,15 +40,15 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
         self.collectionView.dataSource = self
     }
 
-    public func numberOfSections() -> Int {
+    open func numberOfSections() -> Int {
         return self.viewModel?.numberOfSections() ?? 0
     }
 
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.viewModel?.numberOfItemsInSection(section)  ?? 0
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         var item = self.viewModel?.itemAtIndexPath(indexPath)
         var reuseIdentifier = self.viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)
@@ -78,23 +78,23 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
 
 extension CollectionController : CollectionViewModelDelegate {
     
-    public func modelDidChanged(_ model: CollectionViewModel) {
+    open func modelDidChanged(_ model: CollectionViewModel) {
         self.collectionView.reloadData()
     }
     
-    public func modelWillChangeContent(_ model: CollectionViewModel) {
+    open func modelWillChangeContent(_ model: CollectionViewModel) {
         
     }
     
-    public func model(_ model: CollectionViewModel, didChangeSectionAtIndex sectionIndex: Int, forChangeType type: Int) {
+    open func model(_ model: CollectionViewModel, didChangeSectionAtIndex sectionIndex: Int, forChangeType type: Int) {
         
     }
     
-    public func model(_ model: CollectionViewModel, didChangeObject object: Any, atIndexPath indexPath: IndexPath, forChangeType type: Int, newIndexPath: IndexPath) {
+    open func model(_ model: CollectionViewModel, didChangeObject object: Any, atIndexPath indexPath: IndexPath, forChangeType type: Int, newIndexPath: IndexPath) {
         
     }
     
-    public func modelDidChangeContent(_ model: CollectionViewModel) {
+    open func modelDidChangeContent(_ model: CollectionViewModel) {
         
     }
 }

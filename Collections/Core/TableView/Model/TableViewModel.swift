@@ -17,7 +17,9 @@ public protocol TableViewModel {
     func numberOfItemsInSection(_ section: Int) -> Int
     
     func reuseIdentifierForCellAtIndexPath(_ indexPath: IndexPath) -> String
-        
+
+    func item(for section: Int) -> Any?
+
     func itemAtIndexPath(_ indexPath: IndexPath) -> Any?
     
     func indexPathOfObject(_ object: Any) -> IndexPath?

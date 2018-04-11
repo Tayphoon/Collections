@@ -11,7 +11,7 @@ import UIKit
 open class TableController<T>: UIViewController, UITableViewDelegate, UITableViewDataSource where T: TableViewModel  {
     private var _tableView: UITableView?
 
-    public var tableView: UITableView {
+    open var tableView: UITableView {
         get {
             if(_tableView == nil) {
                 let tableView = UITableView()
@@ -26,7 +26,7 @@ open class TableController<T>: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    public var viewModel: T? {
+    open var viewModel: T? {
         willSet {
             self.viewModel?.delegate = self
         }
@@ -39,15 +39,49 @@ open class TableController<T>: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.dataSource = self
     }
 
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         return self.viewModel?.numberOfSections() ?? 0
     }
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel?.numberOfItemsInSection(section) ?? 0
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let item = self.viewModel?.item(for: section)
+        var reuseIdentifier: String? = nil
+
+        if let sectionObject = item as? CollectionSectionObject, let headerObject = sectionObject.headerObject {
+            reuseIdentifier = headerObject.reuseIdentifier
+            tableView.register(headerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: headerObject.reuseIdentifier)
+        }
+
+        if let viewIdentifier = reuseIdentifier {
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: viewIdentifier)
+            return headerView
+        }
+
+        return nil
+    }
+
+    open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let item = self.viewModel?.item(for: section)
+        var reuseIdentifier: String? = nil
+
+        if let sectionObject = item as? CollectionSectionObject, let footerObject = sectionObject.headerObject {
+            reuseIdentifier = footerObject.reuseIdentifier
+            tableView.register(footerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: footerObject.reuseIdentifier)
+        }
+
+        if let viewIdentifier = reuseIdentifier {
+            let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: viewIdentifier)
+            return footerView
+        }
+
+        return nil
+    }
+
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var item = self.viewModel?.itemAtIndexPath(indexPath)
         var reuseIdentifier = self.viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)
 
@@ -76,15 +110,15 @@ open class TableController<T>: UIViewController, UITableViewDelegate, UITableVie
 
 extension TableController : CollectionViewModelDelegate {
     
-    public func modelDidChanged(_ model: CollectionViewModel) {
+    open func modelDidChanged(_ model: CollectionViewModel) {
         self.tableView.reloadData()
     }
     
-    public func modelWillChangeContent(_ model: CollectionViewModel) {
+    open func modelWillChangeContent(_ model: CollectionViewModel) {
         self.tableView.beginUpdates()
     }
     
-    public func model(_ model: CollectionViewModel, didChangeSectionAtIndex sectionIndex: Int, forChangeType type: Int) {
+    open func model(_ model: CollectionViewModel, didChangeSectionAtIndex sectionIndex: Int, forChangeType type: Int) {
         switch type {
         case CollectionsChangeType.insert.rawValue:
             self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
@@ -97,7 +131,7 @@ extension TableController : CollectionViewModelDelegate {
         }
     }
     
-    public func model(_ model: CollectionViewModel, didChangeObject object: Any, atIndexPath indexPath: IndexPath, forChangeType type: Int, newIndexPath: IndexPath) {
+    open func model(_ model: CollectionViewModel, didChangeObject object: Any, atIndexPath indexPath: IndexPath, forChangeType type: Int, newIndexPath: IndexPath) {
         switch type {
         case CollectionsChangeType.insert.rawValue:
             self.tableView.insertRows(at: [indexPath], with: .automatic)
@@ -115,7 +149,7 @@ extension TableController : CollectionViewModelDelegate {
         }
     }
     
-    public func modelDidChangeContent(_ model: CollectionViewModel) {
+    open func modelDidChangeContent(_ model: CollectionViewModel) {
         self.tableView.endUpdates()
     }
 }
