@@ -14,6 +14,10 @@ open class BaseTableViewModel<I, B: CollectionObjectBuilder>: TableViewModel whe
     private(set) var items: [CollectionSectionObject]?
     private(set) var cellObjectsBuilder: B?
 
+    public init() {
+
+    }
+
     open func numberOfSections() -> Int {
         return items?.count ?? 0
     }
