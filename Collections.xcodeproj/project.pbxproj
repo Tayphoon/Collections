@@ -24,6 +24,8 @@
 		73AB125C207E50D200B67C22 /* SupplementaryViewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB125B207E50D200B67C22 /* SupplementaryViewObject.swift */; };
 		73AB125F207E527100B67C22 /* CollectionObjectBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB125E207E527100B67C22 /* CollectionObjectBuilder.swift */; };
 		73AB1261207E545600B67C22 /* CollectionBaseObjectBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB1260207E545600B67C22 /* CollectionBaseObjectBuilder.swift */; };
+		73C43AFE207F43FD00544A2D /* BaseTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C43AFD207F43FD00544A2D /* BaseTableViewModel.swift */; };
+		73C43B00207F447400544A2D /* CollectionEmptySectionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C43AFF207F447400544A2D /* CollectionEmptySectionObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		73AB125B207E50D200B67C22 /* SupplementaryViewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryViewObject.swift; sourceTree = "<group>"; };
 		73AB125E207E527100B67C22 /* CollectionObjectBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionObjectBuilder.swift; sourceTree = "<group>"; };
 		73AB1260207E545600B67C22 /* CollectionBaseObjectBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBaseObjectBuilder.swift; sourceTree = "<group>"; };
+		73C43AFD207F43FD00544A2D /* BaseTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewModel.swift; sourceTree = "<group>"; };
+		73C43AFF207F447400544A2D /* CollectionEmptySectionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEmptySectionObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 				7342C0CC200BAAEC00E18021 /* CollectionCellObject.swift */,
 				73AB125B207E50D200B67C22 /* SupplementaryViewObject.swift */,
 				73AB1259207E4FE400B67C22 /* CollectionSectionObject.swift */,
+				73C43AFF207F447400544A2D /* CollectionEmptySectionObject.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			children = (
 				735A00D3200ABA4A00AA2098 /* TableViewModel.swift */,
 				735A00D5200ABBDE00AA2098 /* TableModel.swift */,
+				73C43AFD207F43FD00544A2D /* BaseTableViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,8 +324,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				73AB125C207E50D200B67C22 /* SupplementaryViewObject.swift in Sources */,
+				73C43AFE207F43FD00544A2D /* BaseTableViewModel.swift in Sources */,
 				7342C0CB200BAAAA00E18021 /* ObjectCollectionModel.swift in Sources */,
 				73AB125F207E527100B67C22 /* CollectionObjectBuilder.swift in Sources */,
+				73C43B00207F447400544A2D /* CollectionEmptySectionObject.swift in Sources */,
 				73AB1261207E545600B67C22 /* CollectionBaseObjectBuilder.swift in Sources */,
 				735A00C7200AA01700AA2098 /* CollectionViewModel.swift in Sources */,
 				735A00D4200ABA4A00AA2098 /* TableViewModel.swift in Sources */,
