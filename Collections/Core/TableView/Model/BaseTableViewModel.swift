@@ -11,8 +11,8 @@ import Foundation
 open class BaseTableViewModel<I, B: CollectionObjectBuilder>: TableViewModel where B.T == I {
 
     public weak var delegate: CollectionViewModelDelegate?
+    public var cellObjectsBuilder: B?
     private(set) var items: [CollectionSectionObject]?
-    private(set) var cellObjectsBuilder: B?
 
     public init() {
 
