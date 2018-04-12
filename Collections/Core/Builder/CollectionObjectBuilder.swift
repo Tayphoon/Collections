@@ -9,7 +9,6 @@
 import Foundation
 
 public protocol CollectionObjectBuilder: class {
-    associatedtype T
-    func buildSectionObjects(for items:[T]) -> [CollectionSectionObject]?
-    func buildCellObject(for item: T) -> CollectionCellObject?
+    func buildSectionObjects(for items:[Any]) -> [CollectionSectionObject]?
+    func buildCellObject(for item: Any) -> CollectionCellObject?
 }

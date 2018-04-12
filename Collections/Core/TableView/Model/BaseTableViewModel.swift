@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class BaseTableViewModel<I, B: CollectionObjectBuilder>: TableViewModel where B.T == I {
+open class BaseTableViewModel<T, B: CollectionObjectBuilder>: TableViewModel {
 
     public weak var delegate: CollectionViewModelDelegate?
     public var cellObjectsBuilder: B?
@@ -58,7 +58,7 @@ open class BaseTableViewModel<I, B: CollectionObjectBuilder>: TableViewModel whe
         return nil
     }
 
-    open func configure(with items: [I]?) {
+    open func configure(with items: [T]?) {
         self.items?.removeAll()
 
         if let items = items  {
