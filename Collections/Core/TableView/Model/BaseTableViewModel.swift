@@ -31,6 +31,10 @@ open class BaseTableViewModel<T, B: CollectionObjectBuilder>: TableViewModel {
     }
 
     open func item(for section: Int) -> Any? {
+        if let count = items?.count, section < count {
+            return items?[section]
+        }
+
         return nil
     }
 
