@@ -21,12 +21,12 @@ public extension CollectionModel {
     }
     
     public func numberOfItemsInSection(_ section: Int) -> Int {
-        return self.items.count
+        return items.count
     }
     
     public func itemAtIndexPath(_ indexPath: IndexPath) -> Any? {
-        if indexPath.row < self.items.count {
-            return self.items[indexPath.row]
+        if indexPath.row < items.count {
+            return items[indexPath.row]
         }
         
         return nil

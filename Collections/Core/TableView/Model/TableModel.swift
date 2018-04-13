@@ -10,7 +10,7 @@ import Foundation
 
 public protocol TableModel : TableViewModel {
     
-    var items: Array<Any> { get }
+    var items: [Any] { get }
     
     func updateModelWithCompletion(_ completion: ((Error) -> Swift.Void)?)
 }
@@ -22,12 +22,12 @@ public extension TableModel {
     }
     
     public func numberOfItemsInSection(_ section: Int) -> Int {
-        return self.items.count
+        return items.count
     }
     
     public func itemAtIndexPath(_ indexPath: IndexPath) -> Any? {
-        if indexPath.row < self.items.count {
-            return self.items[indexPath.row]
+        if indexPath.row < items.count {
+            return items[indexPath.row]
         }
         
         return nil

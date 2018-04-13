@@ -43,22 +43,22 @@ public protocol CollectionViewModel {
 public extension CollectionViewModel {
     
     public func modelDidChanged() {
-        self.delegate?.modelDidChanged(self)
+        delegate?.modelDidChanged(self)
     }
     
     public func modelWillChangeContent() {
-        self.delegate?.modelWillChangeContent(self)
+        delegate?.modelWillChangeContent(self)
     }
     
     public func model(didChangeSectionAtIndex sectionIndex: Int, forChangeType type: Int) {
-        self.delegate?.model(self, didChangeSectionAtIndex: sectionIndex, forChangeType: type)
+        delegate?.model(self, didChangeSectionAtIndex: sectionIndex, forChangeType: type)
     }
     
     public func model(didChangeObject object: Any, atIndexPath indexPath: IndexPath, forChangeType type: Int, newIndexPath: IndexPath) {
-        self.delegate?.model(self, didChangeObject: object, atIndexPath: indexPath, forChangeType: type, newIndexPath: newIndexPath)
+        delegate?.model(self, didChangeObject: object, atIndexPath: indexPath, forChangeType: type, newIndexPath: newIndexPath)
     }
     
     public func modelDidChangeContent() {
-        self.delegate?.modelDidChangeContent(self)
+        delegate?.modelDidChangeContent(self)
     }
 }

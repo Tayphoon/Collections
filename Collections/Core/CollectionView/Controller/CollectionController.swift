@@ -13,7 +13,7 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
     
     open var viewModel: T? {
         willSet {
-            self.viewModel?.delegate = self
+            viewModel?.delegate = self
         }
     }
     
@@ -25,7 +25,7 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
                 collectionView.translatesAutoresizingMaskIntoConstraints = false
                 _collectionView = collectionView
 
-                self.view.addSubview(collectionView)
+                view.addSubview(collectionView)
                 configureCollectionViewLayoutConstraints()
             }
             
@@ -36,22 +36,22 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 
     open func numberOfSections() -> Int {
-        return self.viewModel?.numberOfSections() ?? 0
+        return viewModel?.numberOfSections() ?? 0
     }
 
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel?.numberOfItemsInSection(section)  ?? 0
+        return viewModel?.numberOfItemsInSection(section)  ?? 0
     }
 
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        var item = self.viewModel?.itemAtIndexPath(indexPath)
-        var reuseIdentifier = self.viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)
+        var item = viewModel?.itemAtIndexPath(indexPath)
+        var reuseIdentifier = viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)
 
         if let cellObject = item as? CollectionCellObject {
             reuseIdentifier = cellObject.reuseIdentifier
@@ -69,17 +69,17 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
     }
 
     open func configureCollectionViewLayoutConstraints() {
-        self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor)
-        self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-        self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-        self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor)
+        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor)
+        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor)
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     }
 }
 
 extension CollectionController : CollectionViewModelDelegate {
     
     open func modelDidChanged(_ model: CollectionViewModel) {
-        self.collectionView.reloadData()
+        collectionView.reloadData()
     }
     
     open func modelWillChangeContent(_ model: CollectionViewModel) {
