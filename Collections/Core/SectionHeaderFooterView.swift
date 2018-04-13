@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol SectionHeaderFooterView {
+public protocol SectionHeaderFooterView {
     var item: Any? { get set }
 }
