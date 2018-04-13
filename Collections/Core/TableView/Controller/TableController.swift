@@ -47,40 +47,6 @@ open class TableController<T>: UIViewController, UITableViewDelegate, UITableVie
         return self.viewModel?.numberOfItemsInSection(section) ?? 0
     }
 
-    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let item = self.viewModel?.item(for: section)
-        var reuseIdentifier: String? = nil
-
-        if let sectionObject = item as? CollectionSectionObject, let headerObject = sectionObject.headerObject {
-            reuseIdentifier = headerObject.reuseIdentifier
-            tableView.register(headerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: headerObject.reuseIdentifier)
-        }
-
-        if let viewIdentifier = reuseIdentifier {
-            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: viewIdentifier)
-            return headerView
-        }
-
-        return nil
-    }
-
-    open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let item = self.viewModel?.item(for: section)
-        var reuseIdentifier: String? = nil
-
-        if let sectionObject = item as? CollectionSectionObject, let footerObject = sectionObject.headerObject {
-            reuseIdentifier = footerObject.reuseIdentifier
-            tableView.register(footerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: footerObject.reuseIdentifier)
-        }
-
-        if let viewIdentifier = reuseIdentifier {
-            let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: viewIdentifier)
-            return footerView
-        }
-
-        return nil
-    }
-
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var item = self.viewModel?.itemAtIndexPath(indexPath)
         var reuseIdentifier = self.viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)

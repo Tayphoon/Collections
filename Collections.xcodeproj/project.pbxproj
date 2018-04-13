@@ -26,6 +26,7 @@
 		73AB1261207E545600B67C22 /* CollectionBaseObjectBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB1260207E545600B67C22 /* CollectionBaseObjectBuilder.swift */; };
 		73C43AFE207F43FD00544A2D /* BaseTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C43AFD207F43FD00544A2D /* BaseTableViewModel.swift */; };
 		73C43B00207F447400544A2D /* CollectionEmptySectionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C43AFF207F447400544A2D /* CollectionEmptySectionObject.swift */; };
+		73DEC44820808D4400DEB2AF /* SectionTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DEC44720808D4400DEB2AF /* SectionTableController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		73AB1260207E545600B67C22 /* CollectionBaseObjectBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBaseObjectBuilder.swift; sourceTree = "<group>"; };
 		73C43AFD207F43FD00544A2D /* BaseTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewModel.swift; sourceTree = "<group>"; };
 		73C43AFF207F447400544A2D /* CollectionEmptySectionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEmptySectionObject.swift; sourceTree = "<group>"; };
+		73DEC44720808D4400DEB2AF /* SectionTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				7342C0CE200BAE4F00E18021 /* TableController.swift */,
+				73DEC44720808D4400DEB2AF /* SectionTableController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				73AB1261207E545600B67C22 /* CollectionBaseObjectBuilder.swift in Sources */,
 				735A00C7200AA01700AA2098 /* CollectionViewModel.swift in Sources */,
 				735A00D4200ABA4A00AA2098 /* TableViewModel.swift in Sources */,
+				73DEC44820808D4400DEB2AF /* SectionTableController.swift in Sources */,
 				7342C0D1200BB02200E18021 /* CollectionConstants.swift in Sources */,
 				73AB125A207E4FE400B67C22 /* CollectionSectionObject.swift in Sources */,
 				7342C0CF200BAE4F00E18021 /* TableController.swift in Sources */,
