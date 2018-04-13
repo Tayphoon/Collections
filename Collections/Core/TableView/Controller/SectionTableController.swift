@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SectionTableController<T: TableViewModel>: TableController<T> {
+open class SectionTableController<T: TableViewModel>: TableController<T> {
 
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let item = self.viewModel?.item(for: section)
