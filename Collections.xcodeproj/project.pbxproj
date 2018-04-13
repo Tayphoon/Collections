@@ -27,6 +27,7 @@
 		73C43AFE207F43FD00544A2D /* BaseTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C43AFD207F43FD00544A2D /* BaseTableViewModel.swift */; };
 		73C43B00207F447400544A2D /* CollectionEmptySectionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C43AFF207F447400544A2D /* CollectionEmptySectionObject.swift */; };
 		73DEC44820808D4400DEB2AF /* SectionTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DEC44720808D4400DEB2AF /* SectionTableController.swift */; };
+		73DEC44C20809A5500DEB2AF /* SectionHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DEC44B20809A5500DEB2AF /* SectionHeaderFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		73C43AFD207F43FD00544A2D /* BaseTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewModel.swift; sourceTree = "<group>"; };
 		73C43AFF207F447400544A2D /* CollectionEmptySectionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEmptySectionObject.swift; sourceTree = "<group>"; };
 		73DEC44720808D4400DEB2AF /* SectionTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableController.swift; sourceTree = "<group>"; };
+		73DEC44B20809A5500DEB2AF /* SectionHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				73AB125B207E50D200B67C22 /* SupplementaryViewObject.swift */,
 				73AB1259207E4FE400B67C22 /* CollectionSectionObject.swift */,
 				73C43AFF207F447400544A2D /* CollectionEmptySectionObject.swift */,
+				73DEC44B20809A5500DEB2AF /* SectionHeaderFooterView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				73C43AFE207F43FD00544A2D /* BaseTableViewModel.swift in Sources */,
 				7342C0CB200BAAAA00E18021 /* ObjectCollectionModel.swift in Sources */,
 				73AB125F207E527100B67C22 /* CollectionObjectBuilder.swift in Sources */,
+				73DEC44C20809A5500DEB2AF /* SectionHeaderFooterView.swift in Sources */,
 				73C43B00207F447400544A2D /* CollectionEmptySectionObject.swift in Sources */,
 				73AB1261207E545600B67C22 /* CollectionBaseObjectBuilder.swift in Sources */,
 				735A00C7200AA01700AA2098 /* CollectionViewModel.swift in Sources */,

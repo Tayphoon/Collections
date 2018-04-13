@@ -11,19 +11,18 @@ import Foundation
 open class SectionTableController<T: TableViewModel>: TableController<T> {
 
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let item = self.viewModel?.item(for: section)
-        var reuseIdentifier: String? = nil
-
-        if let sectionObject = item as? CollectionSectionObject, let headerObject = sectionObject.headerObject {
-            reuseIdentifier = headerObject.reuseIdentifier
-            tableView.register(headerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: headerObject.reuseIdentifier)
+        guard let headerObject = (viewModel?.item(for: section) as? CollectionSectionObject)?.headerObject else {
+            return nil
         }
 
-        if let viewIdentifier = reuseIdentifier {
-            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: viewIdentifier)
-            return headerView
+        tableView.register(headerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: headerObject.reuseIdentifier)
+
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerObject.reuseIdentifier)
+
+        if var headerView = headerView as? SectionHeaderFooterView  {
+            headerView.item = headerObject
         }
 
-        return nil
+        return headerView
     }
 }
