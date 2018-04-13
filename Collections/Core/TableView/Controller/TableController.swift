@@ -46,20 +46,19 @@ open class TableController<T>: UIViewController, UITableViewDelegate, UITableVie
     }
 
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let item = viewModel?.item(for: section)
-        var reuseIdentifier: String? = nil
-
-        if let sectionObject = item as? CollectionSectionObject, let headerObject = sectionObject.headerObject {
-            reuseIdentifier = headerObject.reuseIdentifier
-            tableView.register(headerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: headerObject.reuseIdentifier)
+        guard let headerObject = (viewModel?.item(for: section) as? CollectionSectionObject)?.headerObject else {
+            return nil
         }
 
-        if let viewIdentifier = reuseIdentifier {
-            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: viewIdentifier)
-            return headerView
+        tableView.register(headerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: headerObject.reuseIdentifier)
+
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerObject.reuseIdentifier)
+
+        if var headerView = headerView as? SectionHeaderFooterView  {
+            headerView.item = headerObject.item
         }
 
-        return nil
+        return headerView
     }
 
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,20 +85,19 @@ open class TableController<T>: UIViewController, UITableViewDelegate, UITableVie
     }
 
     open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let item = viewModel?.item(for: section)
-        var reuseIdentifier: String? = nil
-
-        if let sectionObject = item as? CollectionSectionObject, let footerObject = sectionObject.headerObject {
-            reuseIdentifier = footerObject.reuseIdentifier
-            tableView.register(footerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: footerObject.reuseIdentifier)
+        guard let footerObject = (viewModel?.item(for: section) as? CollectionSectionObject)?.footerObject else {
+            return nil
         }
 
-        if let viewIdentifier = reuseIdentifier {
-            let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: viewIdentifier)
-            return footerView
+        tableView.register(footerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: footerObject.reuseIdentifier)
+
+        let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: footerObject.reuseIdentifier)
+
+        if var footerView = footerView as? SectionHeaderFooterView  {
+            footerView.item = footerObject.item
         }
 
-        return nil
+        return footerView
     }
 
     open func configureTableViewLayoutConstraints() {
