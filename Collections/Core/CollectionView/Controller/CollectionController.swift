@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class CollectionController<T>: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate where T: CollectionViewModel {
+open class CollectionController<T>: UIViewController, UICollectionViewDataSource where T: CollectionViewModel {
     private var _collectionView: UICollectionView?
     
     open var viewModel: T? {
@@ -36,7 +36,6 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.delegate = self
         collectionView.dataSource = self
     }
 
