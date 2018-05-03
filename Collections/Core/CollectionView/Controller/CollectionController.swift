@@ -68,10 +68,10 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
     }
 
     open func configureCollectionViewLayoutConstraints() {
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor)
-        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor)
-        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor)
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
 

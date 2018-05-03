@@ -98,10 +98,10 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
     }
 
     open func configureTableViewLayoutConstraints() {
-        tableView.topAnchor.constraint(equalTo: view.topAnchor)
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
 
