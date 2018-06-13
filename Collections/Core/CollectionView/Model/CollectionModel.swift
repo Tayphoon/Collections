@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CollectionModel.swift
 //  Collections
 //
 //  Created by Tayphoon on 13/01/2018.
