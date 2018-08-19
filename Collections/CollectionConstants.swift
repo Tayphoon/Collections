@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum CollectionsChangeType : Int {
+public enum CollectionsChangeType: Int {
     case insert = 1
     case delete = 2
     case move = 3

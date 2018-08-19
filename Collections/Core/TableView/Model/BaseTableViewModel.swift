@@ -10,7 +10,7 @@ import Foundation
 
 open class BaseTableViewModel<T, B: CollectionObjectBuilder>: TableViewModel {
 
-    public weak var delegate: CollectionViewModelDelegate?
+    public weak var delegate: TableViewModelDelegate?
     public var cellObjectsBuilder: B?
     private(set) var items: [CollectionSectionObject]?
 

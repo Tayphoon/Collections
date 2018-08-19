@@ -8,9 +8,20 @@
 
 import Foundation
 
+public protocol TableViewModelDelegate: CollectionViewModelDelegate {
+    
+    func modelWillChangeContent(_ model: CollectionViewModel)
+    
+    func model(_ model: CollectionViewModel, didChangeSectionAtIndex sectionIndex: Int, forChangeType type: Int)
+    
+    func model(_ model: CollectionViewModel, didChangeObject object: Any, atIndexPath indexPath: IndexPath, forChangeType type: Int, newIndexPath: IndexPath)
+    
+    func modelDidChangeContent(_ model: CollectionViewModel)
+}
+
 public protocol TableViewModel {
     
-    var delegate: CollectionViewModelDelegate? { get set }
+    var delegate: TableViewModelDelegate? { get set }
     
     func numberOfSections() -> Int
     

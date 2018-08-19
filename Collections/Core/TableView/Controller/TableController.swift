@@ -105,7 +105,7 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
     }
 }
 
-extension TableController : CollectionViewModelDelegate {
+extension TableController: TableViewModelDelegate {
     
     open func modelDidChanged(_ model: CollectionViewModel) {
         tableView.reloadData()

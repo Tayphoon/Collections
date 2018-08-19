@@ -75,25 +75,9 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
     }
 }
 
-extension CollectionController : CollectionViewModelDelegate {
+extension CollectionController: CollectionViewModelDelegate {
     
     open func modelDidChanged(_ model: CollectionViewModel) {
         collectionView.reloadData()
-    }
-    
-    open func modelWillChangeContent(_ model: CollectionViewModel) {
-        
-    }
-    
-    open func model(_ model: CollectionViewModel, didChangeSectionAtIndex sectionIndex: Int, forChangeType type: Int) {
-        
-    }
-    
-    open func model(_ model: CollectionViewModel, didChangeObject object: Any, atIndexPath indexPath: IndexPath, forChangeType type: Int, newIndexPath: IndexPath) {
-        
-    }
-    
-    open func modelDidChangeContent(_ model: CollectionViewModel) {
-        
     }
 }

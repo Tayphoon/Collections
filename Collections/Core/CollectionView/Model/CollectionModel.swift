@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol CollectionModel : CollectionViewModel {
+public protocol CollectionModel: CollectionViewModel {
     var items: Array<Any> { get }
     
     func updateModelWithCompletion(_ completion: ((Error) -> Swift.Void)?)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol TableModel : TableViewModel {
+public protocol TableModel: TableViewModel {
     
     var items: [Any] { get }
     
