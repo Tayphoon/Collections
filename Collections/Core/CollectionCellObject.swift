@@ -9,8 +9,11 @@
 import Foundation
 
 public protocol CollectionCellObject: class {
+    
     var reuseIdentifier: String { get }
+    
     var cellClass: Swift.AnyClass { get }
+    
     var item: Any? { get set }
 
     init()

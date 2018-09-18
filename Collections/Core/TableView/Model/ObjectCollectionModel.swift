@@ -1,5 +1,5 @@
 //
-//  BaseTableViewModel.swift
+//  ObjectCollectionModel.swift
 //  Collections
 //
 //  Created by Tayphoon on 12/04/2018.
@@ -8,15 +8,13 @@
 
 import Foundation
 
-open class BaseTableViewModel<T, B: CollectionObjectBuilder>: TableViewModel {
+open class ObjectCollectionModel<ItemType, Builder: CollectionObjectBuilder>: CollectionViewModel {
 
-    public weak var delegate: TableViewModelDelegate?
-    public var cellObjectsBuilder: B?
     private(set) var items: [CollectionSectionObject]?
 
-    public init() {
+    public weak var delegate: CollectionViewModelDelegate?
 
-    }
+    public var cellObjectsBuilder: Builder?
 
     open func numberOfSections() -> Int {
         return items?.count ?? 0
@@ -28,14 +26,6 @@ open class BaseTableViewModel<T, B: CollectionObjectBuilder>: TableViewModel {
         }
 
         return 0
-    }
-
-    open func item(for section: Int) -> Any? {
-        if let count = items?.count, section < count {
-            return items?[section]
-        }
-
-        return nil
     }
 
     open func reuseIdentifierForCellAtIndexPath(_ indexPath: IndexPath) -> String {
@@ -62,11 +52,7 @@ open class BaseTableViewModel<T, B: CollectionObjectBuilder>: TableViewModel {
         return nil
     }
 
-    open func configure(with items: [T]?) {
-        self.items?.removeAll()
-
-        if let items = items  {
-            self.items = cellObjectsBuilder?.buildSectionObjects(for: items)
-        }
+    open func configure(with items: [ItemType]) {
+        self.items = cellObjectsBuilder?.buildSectionObjects(for: items)
     }
 }

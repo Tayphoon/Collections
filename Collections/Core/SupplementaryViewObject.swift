@@ -9,8 +9,12 @@
 import Foundation
 
 public protocol SupplementaryViewObject {
+    
     var reuseIdentifier: String { get }
+    
     var supplementaryViewClass: Swift.AnyClass { get }
+    
     var elementKind: String { get }
+    
     var item: Any? { get set }
 }

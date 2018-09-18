@@ -9,5 +9,6 @@
 import Foundation
 
 public protocol SectionHeaderFooterView {
-    var item: Any? { get set }
+    
+    func configure(with _: Any)
 }

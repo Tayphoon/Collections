@@ -9,6 +9,8 @@
 import Foundation
 
 public protocol CollectionObjectBuilder: class {
+    
     func buildSectionObjects(for items:[Any]) -> [CollectionSectionObject]?
+    
     func buildCellObject(for item: Any) -> CollectionCellObject?
 }

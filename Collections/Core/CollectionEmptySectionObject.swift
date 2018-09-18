@@ -9,9 +9,13 @@
 import Foundation
 
 open class CollectionEmptySectionObject: CollectionSectionObject {
+    
     public var cellObjects: [CollectionCellObject]?
+    
     public var headerObject: SupplementaryViewObject?
+    
     public var footerObject: SupplementaryViewObject?
+    
     public var supplementaryViewObjects: [SupplementaryViewObject]?
 
     public required init() {

@@ -11,8 +11,6 @@ import Foundation
 public protocol TableModel: TableViewModel {
     
     var items: [Any] { get }
-    
-    func updateModelWithCompletion(_ completion: ((Error) -> Swift.Void)?)
 }
 
 public extension TableModel {

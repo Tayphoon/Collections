@@ -60,8 +60,8 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
 
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier!, for: indexPath)
 
-        if let collectionCell = cell as? CollectionCell {
-            collectionCell.item = item
+        if let collectionCell = cell as? CollectionCell, let item = item {
+            collectionCell.configure(with: item)
         }
 
         return cell

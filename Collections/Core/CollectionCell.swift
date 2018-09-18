@@ -9,5 +9,6 @@
 import Foundation
 
 public protocol CollectionCell: class {
-    var item: Any? { get set }
+    
+    func configure(with _: Any)
 }

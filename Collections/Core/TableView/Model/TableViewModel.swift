@@ -19,19 +19,7 @@ public protocol TableViewModelDelegate: CollectionViewModelDelegate {
     func modelDidChangeContent(_ model: CollectionViewModel)
 }
 
-public protocol TableViewModel {
+public protocol TableViewModel: CollectionViewModel {
     
-    var delegate: TableViewModelDelegate? { get set }
-    
-    func numberOfSections() -> Int
-    
-    func numberOfItemsInSection(_ section: Int) -> Int
-    
-    func reuseIdentifierForCellAtIndexPath(_ indexPath: IndexPath) -> String
-
     func item(for section: Int) -> Any?
-
-    func itemAtIndexPath(_ indexPath: IndexPath) -> Any?
-    
-    func indexPathOfObject(_ object: Any) -> IndexPath?
 }

@@ -58,31 +58,33 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
 
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier!, for: indexPath)
 
-        if let collectionCell = cell as? CollectionCell {
-            collectionCell.item = item
+        if let collectionCell = cell as? CollectionCell, let item = item {
+            collectionCell.configure(with: item)
         }
 
         return cell
     }
 
     open func viewForHeaderInTable(_ tableView: UITableView, section: Int) -> UIView? {
-        guard let headerObject = (viewModel?.item(for: section) as? CollectionSectionObject)?.headerObject else {
-            return nil
+        guard let sectionObject = viewModel?.item(for: section) as? CollectionSectionObject,
+            let headerObject = sectionObject.footerObject else {
+                return nil
         }
 
         tableView.register(headerObject.supplementaryViewClass, forHeaderFooterViewReuseIdentifier: headerObject.reuseIdentifier)
 
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerObject.reuseIdentifier)
 
-        if var headerView = headerView as? SectionHeaderFooterView  {
-            headerView.item = headerObject.item
+        if let headerView = headerView as? SectionHeaderFooterView, let item = headerObject.item  {
+            headerView.configure(with: item)
         }
 
         return headerView
     }
 
     open func viewForFooterInTable(_ tableView: UITableView, section: Int) -> UIView? {
-        guard let footerObject = (viewModel?.item(for: section) as? CollectionSectionObject)?.footerObject else {
+        guard let sectionObject = viewModel?.item(for: section) as? CollectionSectionObject,
+              let footerObject = sectionObject.footerObject else {
             return nil
         }
 
@@ -90,8 +92,8 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
 
         let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: footerObject.reuseIdentifier)
 
-        if var footerView = footerView as? SectionHeaderFooterView  {
-            footerView.item = footerObject.item
+        if let footerView = footerView as? SectionHeaderFooterView, let item = footerObject.item  {
+            footerView.configure(with: item)
         }
 
         return footerView

@@ -9,15 +9,14 @@
 import Foundation
 
 public protocol CollectionModel: CollectionViewModel {
-    var items: Array<Any> { get }
     
-    func updateModelWithCompletion(_ completion: ((Error) -> Swift.Void)?)
+    var items: [Any] { get }
 }
 
 public extension CollectionModel {
     
     public func numberOfSections() -> Int {
-        return 0
+        return 1
     }
     
     public func numberOfItemsInSection(_ section: Int) -> Int {
