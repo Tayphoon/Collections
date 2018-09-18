@@ -16,6 +16,10 @@ open class ObjectCollectionModel<ItemType, Builder: CollectionObjectBuilder>: Co
 
     public var cellObjectsBuilder: Builder?
 
+    public init() {
+        
+    }
+
     open func numberOfSections() -> Int {
         return items?.count ?? 0
     }

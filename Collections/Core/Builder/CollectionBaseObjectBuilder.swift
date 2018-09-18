@@ -10,6 +10,10 @@ import Foundation
 
 open class CollectionBaseObjectBuilder<S: CollectionSectionObject, C: CollectionCellObject>: CollectionObjectBuilder {
 
+    public init() {
+        
+    }
+
     open func buildSectionObjects(for items: [Any]) -> [CollectionSectionObject]? {
 
         let section = S()
