@@ -21,14 +21,14 @@ it, simply add the following lines to your Podfile:
 ```ruby
 source 'https://github.com/Tayphoon/TayphoonSpecs.git'
  
-platform :ios, '8.0'
+platform :ios, '9.0'
  
 target 'DemoApp' do
-  pod 'Collections', '~> 0.0.1'
+  pod 'Collections', '~> 0.1.1'
 end
 
 # CoreData support optional component
-pod 'Collections/CoreData', '~> 0.0.1'
+pod 'Collections/CoreData', '~> 0.1.1'
 
 ```
 
