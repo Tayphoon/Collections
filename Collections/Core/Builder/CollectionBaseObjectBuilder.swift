@@ -15,7 +15,6 @@ open class CollectionBaseObjectBuilder<S: CollectionSectionObject, C: Collection
     }
 
     open func buildSectionObjects(for items: [Any]) -> [CollectionSectionObject]? {
-
         let section = S()
         var cellObjects = [CollectionCellObject]()
 

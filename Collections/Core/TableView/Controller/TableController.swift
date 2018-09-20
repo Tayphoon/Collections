@@ -9,6 +9,7 @@
 import UIKit
 
 open class TableController<T>: UIViewController, UITableViewDataSource where T: TableViewModel  {
+
     private var _tableView: UITableView?
 
     open var tableView: UITableView {
@@ -26,9 +27,9 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
         }
     }
     
-    open var viewModel: T? {
+    open var viewModel: T! {
         didSet {
-            viewModel?.delegate = self
+            viewModel.delegate = self
         }
     }
     
@@ -39,16 +40,16 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
     }
 
     open func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.numberOfSections() ?? 0
+        return viewModel.numberOfSections()
     }
 
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.numberOfItemsInSection(section) ?? 0
+        return viewModel.numberOfItemsInSection(section)
     }
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var item = viewModel?.itemAtIndexPath(indexPath)
-        var reuseIdentifier = viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)
+        var item = viewModel.itemAtIndexPath(indexPath)
+        var reuseIdentifier = viewModel.reuseIdentifierForCellAtIndexPath(indexPath)
 
         if let cellObject = item as? CollectionCellObject {
             reuseIdentifier = cellObject.reuseIdentifier
@@ -56,7 +57,7 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
             tableView.register(cellObject.cellClass, forCellReuseIdentifier: cellObject.reuseIdentifier)
         }
 
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier!, for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 
         if let collectionCell = cell as? CollectionCell, let item = item {
             collectionCell.configure(with: item)
@@ -66,7 +67,7 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
     }
 
     open func viewForHeaderInTable(_ tableView: UITableView, section: Int) -> UIView? {
-        guard let sectionObject = viewModel?.item(for: section) as? CollectionSectionObject,
+        guard let sectionObject = viewModel.item(for: section) as? CollectionSectionObject,
             let headerObject = sectionObject.footerObject else {
                 return nil
         }
@@ -83,7 +84,7 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
     }
 
     open func viewForFooterInTable(_ tableView: UITableView, section: Int) -> UIView? {
-        guard let sectionObject = viewModel?.item(for: section) as? CollectionSectionObject,
+        guard let sectionObject = viewModel.item(for: section) as? CollectionSectionObject,
               let footerObject = sectionObject.footerObject else {
             return nil
         }

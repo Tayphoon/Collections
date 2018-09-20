@@ -11,9 +11,9 @@ import UIKit
 open class CollectionController<T>: UIViewController, UICollectionViewDataSource where T: CollectionViewModel {
     private var _collectionView: UICollectionView?
     
-    open var viewModel: T? {
+    open var viewModel: T! {
         willSet {
-            viewModel?.delegate = self
+            viewModel.delegate = self
         }
     }
     
@@ -40,16 +40,16 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
     }
 
     open func numberOfSections() -> Int {
-        return viewModel?.numberOfSections() ?? 0
+        return viewModel.numberOfSections()
     }
 
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.numberOfItemsInSection(section)  ?? 0
+        return viewModel.numberOfItemsInSection(section)
     }
 
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        var item = viewModel?.itemAtIndexPath(indexPath)
+        var item = viewModel.itemAtIndexPath(indexPath)
         var reuseIdentifier = viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)
 
         if let cellObject = item as? CollectionCellObject {
