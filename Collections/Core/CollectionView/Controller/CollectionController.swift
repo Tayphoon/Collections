@@ -12,7 +12,7 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
     private var _collectionView: UICollectionView?
     
     open var viewModel: T! {
-        willSet {
+        didSet {
             viewModel.delegate = self
         }
     }
