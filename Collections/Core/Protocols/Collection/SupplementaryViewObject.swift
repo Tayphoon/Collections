@@ -8,13 +8,7 @@
 
 import Foundation
 
-public protocol SupplementaryViewObject {
-    
-    var reuseIdentifier: String { get }
-    
-    var supplementaryViewClass: Swift.AnyClass { get }
-    
+public protocol SupplementaryViewObject: ReusableViewObject {
+
     var elementKind: String { get }
-    
-    var item: Any? { get set }
 }

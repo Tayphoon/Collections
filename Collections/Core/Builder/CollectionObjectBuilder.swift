@@ -10,7 +10,7 @@ import Foundation
 
 public protocol CollectionObjectBuilder: class {
     
-    func buildSectionObjects(for items:[Any]) -> [CollectionSectionObject]?
+    func buildSectionObjects(for items:[Any]) -> [SectionObject]
     
-    func buildCellObject(for item: Any) -> CollectionCellObject?
+    func buildCellObject(for item: Any) -> CellObject
 }

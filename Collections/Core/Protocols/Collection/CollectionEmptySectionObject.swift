@@ -10,7 +10,7 @@ import Foundation
 
 open class CollectionEmptySectionObject: CollectionSectionObject {
     
-    public var cellObjects: [CollectionCellObject]?
+    public var cellObjects: [CellObject]?
     
     public var headerObject: SupplementaryViewObject?
     

@@ -49,20 +49,16 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
 
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        var item = viewModel.itemAtIndexPath(indexPath)
-        var reuseIdentifier = viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)
-
-        if let cellObject = item as? CollectionCellObject {
-            reuseIdentifier = cellObject.reuseIdentifier
-            item = cellObject.item
-            collectionView.register(cellObject.cellClass, forCellWithReuseIdentifier: cellObject.reuseIdentifier)
+        let item = viewModel.itemAtIndexPath(indexPath)
+        guard let cellObject = item as? CollectionConfigurableObject else {
+            let reuseIdentifier = viewModel?.reuseIdentifierForCellAtIndexPath(indexPath)
+            return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier!, for: indexPath)
         }
 
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier!, for: indexPath)
+        collectionView.register(cellObject.cellClass, forCellWithReuseIdentifier: cellObject.reuseIdentifier)
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellObject.reuseIdentifier, for: indexPath)
 
-        if let collectionCell = cell as? CollectionCell, let item = item {
-            collectionCell.configure(with: item)
-        }
+        cellObject.configure(cell)
 
         return cell
     }

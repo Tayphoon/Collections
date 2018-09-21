@@ -9,6 +9,8 @@
 import Foundation
 
 public protocol CollectionCell: class {
+
+    associatedtype ItemType
     
-    func configure(with _: Any)
+    func configure(with _: ItemType)
 }

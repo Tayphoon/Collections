@@ -8,20 +8,22 @@
 
 import Foundation
 
-open class CollectionBaseObjectBuilder<S: CollectionSectionObject, C: CollectionCellObject>: CollectionObjectBuilder {
+public typealias CellObjectType = InitializableItem & CellObject & ConfigurableCellObject
+public typealias SectionObjectType = InitializableItem & SectionObject
+
+open class CollectionBaseObjectBuilder<S: SectionObjectType, C: CellObjectType>: CollectionObjectBuilder {
 
     public init() {
         
     }
 
-    open func buildSectionObjects(for items: [Any]) -> [CollectionSectionObject]? {
+    open func buildSectionObjects(for items: [Any]) -> [SectionObject] {
         let section = S()
-        var cellObjects = [CollectionCellObject]()
+        var cellObjects = [CellObject]()
 
         for item in items {
-            if let cellObject = buildCellObject(for: item) {
-                cellObjects.append(cellObject)
-            }
+            let cellObject = buildCellObject(for: item)
+            cellObjects.append(cellObject)
         }
 
         section.cellObjects = cellObjects
@@ -29,9 +31,12 @@ open class CollectionBaseObjectBuilder<S: CollectionSectionObject, C: Collection
         return [section]
     }
 
-    open func buildCellObject(for item: Any) -> CollectionCellObject? {
-        let cellObject = C()
-        cellObject.item = item
+    open func buildCellObject(for item: Any) -> CellObject {
+        var cellObject = C()
+
+        if let item = item as? C.ItemType {
+            cellObject.item = item
+        }
 
         return cellObject
     }
