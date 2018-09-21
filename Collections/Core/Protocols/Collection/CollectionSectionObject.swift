@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol CollectionSectionObject {
+public protocol CollectionSectionObject: SectionObject {
 
     var headerObject: SupplementaryViewObject? { get }
 

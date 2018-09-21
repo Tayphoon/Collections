@@ -11,8 +11,4 @@ import Foundation
 public protocol SectionObject: class {
 
     var cellObjects: [CellObject]? { get set }
-
-    var headerObject: ReusableViewObject? { get }
-
-    var footerObject: ReusableViewObject? { get }
 }

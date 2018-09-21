@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class CollectionEmptySectionObject: CollectionSectionObject {
+open class CollectionEmptySectionObject: InitializableItem, CollectionSectionObject {
     
     public var cellObjects: [CellObject]?
     

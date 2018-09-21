@@ -64,7 +64,7 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
     }
 
     open func viewForHeaderInTable(_ tableView: UITableView, section: Int) -> UIView? {
-        guard let sectionObject = viewModel.item(for: section) as? SectionObject,
+        guard let sectionObject = viewModel.item(for: section) as? TableSectionObject,
             let headerObject = sectionObject.headerObject else {
                 return nil
         }
@@ -78,7 +78,7 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
     }
 
     open func viewForFooterInTable(_ tableView: UITableView, section: Int) -> UIView? {
-        guard let sectionObject = viewModel.item(for: section) as? SectionObject,
+        guard let sectionObject = viewModel.item(for: section) as? TableSectionObject,
               let footerObject = sectionObject.footerObject else {
             return nil
         }
