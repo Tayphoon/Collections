@@ -21,10 +21,10 @@ open class CollectionCellObject<CellType: CollectionCell>: ConfigurableCellObjec
 
     open var cellClass: Swift.AnyClass
 
-    public init(item: CellType.ItemType, reuseIdentifier: String, cellClass: Swift.AnyClass) {
+    public required init(_ item: CellType.ItemType) {
         self.item = item
-        self.reuseIdentifier = reuseIdentifier
-        self.cellClass = cellClass
+        self.cellClass = CellType.self
+        self.reuseIdentifier = String(describing: self.cellClass)
     }
 
     open func configure(_ cell: UICollectionViewCell) {

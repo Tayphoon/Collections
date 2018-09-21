@@ -11,6 +11,8 @@ import Foundation
 public protocol ConfigurableCellObject {
 
     associatedtype ItemType
-
-    var item: ItemType { get set }
+    
+    var item: ItemType { get }
+    
+    init(_ item: ItemType)
 }

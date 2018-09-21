@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias CellObjectType = InitializableItem & CellObject & ConfigurableCellObject
+public typealias CellObjectType = CellObject & ConfigurableCellObject
 public typealias SectionObjectType = InitializableItem & SectionObject
 
 open class CollectionBaseObjectBuilder<S: SectionObjectType, C: CellObjectType>: CollectionObjectBuilder {
@@ -32,11 +32,7 @@ open class CollectionBaseObjectBuilder<S: SectionObjectType, C: CellObjectType>:
     }
 
     open func buildCellObject(for item: Any) -> CellObject {
-        var cellObject = C()
-
-        if let item = item as? C.ItemType {
-            cellObject.item = item
-        }
+        let cellObject = C(item as! C.ItemType)
 
         return cellObject
     }
