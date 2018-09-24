@@ -12,7 +12,7 @@ open class TableCollectionModel<ItemType, Builder: CollectionObjectBuilder>: Obj
     
     public func item(for section: Int) -> Any? {
         if section < numberOfSections() {
-            return items?[section]
+            return items[section]
         }
         
         return nil

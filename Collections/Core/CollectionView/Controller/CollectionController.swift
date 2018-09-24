@@ -9,6 +9,7 @@
 import UIKit
 
 open class CollectionController<T>: UIViewController, UICollectionViewDataSource where T: CollectionViewModel {
+    
     private var _collectionView: UICollectionView?
     
     open var viewModel: T! {

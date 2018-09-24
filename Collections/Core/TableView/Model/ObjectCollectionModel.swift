@@ -10,14 +10,15 @@ import Foundation
 
 open class ObjectCollectionModel<ItemType, Builder: CollectionObjectBuilder>: CollectionViewModel {
 
-    private(set) var items: [SectionObject]!
+    private(set) var items: [SectionObject]
 
     public weak var delegate: CollectionViewModelDelegate?
 
-    public var cellObjectsBuilder: Builder!
+    public var cellObjectsBuilder: Builder
 
-    public init() {
-        
+    public init(builder: Builder) {
+        self.cellObjectsBuilder = builder;
+        self.items = []
     }
 
     open func numberOfSections() -> Int {
