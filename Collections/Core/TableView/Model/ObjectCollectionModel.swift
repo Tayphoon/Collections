@@ -26,7 +26,7 @@ open class ObjectCollectionModel<ItemType, Builder: CollectionObjectBuilder>: Co
     }
 
     open func numberOfItemsInSection(_ section: Int) -> Int {
-        if items.count < section {
+        if section < items.count {
             return items[section].cellObjects?.count ?? 0
         }
 
