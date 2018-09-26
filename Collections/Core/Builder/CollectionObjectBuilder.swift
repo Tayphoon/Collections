@@ -12,5 +12,5 @@ public protocol CollectionObjectBuilder: class {
     
     func buildSectionObjects(for items:[Any]) -> [SectionObject]
     
-    func buildCellObject(for item: Any) -> CellObject
+    func buildCellObject(for item: Any) -> CellObject?
 }

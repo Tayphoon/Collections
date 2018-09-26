@@ -22,8 +22,9 @@ open class CollectionBaseObjectBuilder<S: SectionObjectType, C: CellObjectType>:
         var cellObjects = [CellObject]()
 
         for item in items {
-            let cellObject = buildCellObject(for: item)
-            cellObjects.append(cellObject)
+            if let cellObject = buildCellObject(for: item) {
+                cellObjects.append(cellObject)
+            }
         }
 
         section.cellObjects = cellObjects
@@ -31,7 +32,7 @@ open class CollectionBaseObjectBuilder<S: SectionObjectType, C: CellObjectType>:
         return [section]
     }
 
-    open func buildCellObject(for item: Any) -> CellObject {
+    open func buildCellObject(for item: Any) -> CellObject? {
         let cellObject = C(item as! C.ItemType)
 
         return cellObject
