@@ -1,7 +1,7 @@
 # Collections
 
 [![CI Status](http://img.shields.io/travis/Tayphoon/Collections.svg?style=flat)](https://travis-ci.org/Tayphoon/Collections)
-[![Version](https://img.shields.io/cocoapods/v/Collections.svg?style=flat)](http://cocoapods.org/pods/Collections)
+[![codecov.io](https://codecov.io/gh/Tayphoon/Collections/branch/development/graphs/badge.svg)](https://codecov.io/gh/Tayphoon/Collections/branch/development)
 [![License](https://img.shields.io/cocoapods/l/Collections.svg?style=flat)](http://cocoapods.org/pods/Collections)
 [![Platform](https://img.shields.io/cocoapods/p/Collections.svg?style=flat)](http://cocoapods.org/pods/Collections)
 

@@ -8,3 +8,5 @@ branches:
   
 script:
 - xcodebuild clean build test -project Collections.xcodeproj -scheme Collections -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3'
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
