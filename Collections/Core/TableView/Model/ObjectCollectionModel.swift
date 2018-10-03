@@ -10,7 +10,7 @@ import Foundation
 
 open class ObjectCollectionModel<ItemType, Builder: CollectionObjectBuilder>: CollectionViewModel {
 
-    private(set) var items: [CollectionSectionObject]?
+    public var items: [CollectionSectionObject]?
 
     public weak var delegate: CollectionViewModelDelegate?
 
