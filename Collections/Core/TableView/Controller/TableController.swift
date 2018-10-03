@@ -13,6 +13,10 @@ import UIKit
  */
 open class AbstractTableController: UIViewController, UITableViewDataSource {
     
+    open func numberOfSections(in tableView: UITableView) -> Int {
+        fatalError("Subclasses need to implement the `numberOfSections(tableView:)` method.")
+    }
+
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         fatalError("Subclasses need to implement the `tableView(tableView:, numberOfRowsInSection:)` method.")
     }
@@ -53,7 +57,7 @@ open class TableController<T>: AbstractTableController where T: TableViewModel  
         tableView.dataSource = self
     }
 
-    open func numberOfSections(in tableView: UITableView) -> Int {
+    open override func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
 

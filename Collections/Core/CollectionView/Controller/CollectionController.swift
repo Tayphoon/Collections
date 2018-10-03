@@ -13,6 +13,10 @@ import UIKit
  */
 open class AbstractCollectionController: UIViewController, UICollectionViewDataSource {
     
+    open func numberOfSections() -> Int {
+        fatalError("Subclasses need to implement the `numberOfSections()` method.")
+    }
+
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         fatalError("Subclasses need to implement the `collectionView(collectionView:, numberOfItemsInSection:)` method.")
     }
@@ -54,7 +58,7 @@ open class CollectionController<T>: AbstractCollectionController where T: Collec
         collectionView.dataSource = self
     }
 
-    open func numberOfSections() -> Int {
+    open override func numberOfSections() -> Int {
         return viewModel.numberOfSections()
     }
 
