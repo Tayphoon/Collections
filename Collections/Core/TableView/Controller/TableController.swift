@@ -8,7 +8,21 @@
 
 import UIKit
 
-open class TableController<T>: UIViewController, UITableViewDataSource where T: TableViewModel  {
+/**
+ AbstractTableController used to fix capability objc protocols with generic classes.
+ */
+open class AbstractTableController: UIViewController, UITableViewDataSource {
+    
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        fatalError("Subclasses need to implement the `tableView(tableView:, numberOfRowsInSection:)` method.")
+    }
+    
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        fatalError("Subclasses need to implement the `tableView(tableView:, cellForRowAt:)` method.")
+    }
+}
+
+open class TableController<T>: AbstractTableController where T: TableViewModel  {
 
     private var _tableView: UITableView?
 
@@ -43,11 +57,11 @@ open class TableController<T>: UIViewController, UITableViewDataSource where T: 
         return viewModel.numberOfSections()
     }
 
-    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection(section)
     }
 
-    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let item = viewModel.itemAtIndexPath(indexPath)
         guard let cellObject = item as? TableConfigurableObject else {

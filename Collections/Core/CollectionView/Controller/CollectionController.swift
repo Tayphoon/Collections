@@ -8,7 +8,21 @@
 
 import UIKit
 
-open class CollectionController<T>: UIViewController, UICollectionViewDataSource where T: CollectionViewModel {
+/**
+ AbstractCollectionController used to fix capability objc protocols with generic classes.
+ */
+open class AbstractCollectionController: UIViewController, UICollectionViewDataSource {
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        fatalError("Subclasses need to implement the `collectionView(collectionView:, numberOfItemsInSection:)` method.")
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        fatalError("Subclasses need to implement the `collectionView(collectionView:, cellForItemAt:)` method.")
+    }
+}
+
+open class CollectionController<T>: AbstractCollectionController where T: CollectionViewModel {
     
     private var _collectionView: UICollectionView?
     
@@ -44,11 +58,11 @@ open class CollectionController<T>: UIViewController, UICollectionViewDataSource
         return viewModel.numberOfSections()
     }
 
-    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection(section)
     }
 
-    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let item = viewModel.itemAtIndexPath(indexPath)
         guard let cellObject = item as? CollectionConfigurableObject else {
