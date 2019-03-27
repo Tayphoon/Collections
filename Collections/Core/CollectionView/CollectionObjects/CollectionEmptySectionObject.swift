@@ -8,9 +8,9 @@
 
 import Foundation
 
-open class CollectionEmptySectionObject: CollectionSectionObject {
+open class CollectionEmptySectionObject: InitializableItem, CollectionSectionObject {
     
-    public var cellObjects: [CollectionCellObject]?
+    public var cellObjects: [CellObject]?
     
     public var headerObject: SupplementaryViewObject?
     

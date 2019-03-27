@@ -10,7 +10,9 @@ import Foundation
 
 public protocol CollectionModel: CollectionViewModel {
     
-    var items: [Any] { get }
+    associatedtype ItemType
+    
+    var items: [ItemType] { get }
 }
 
 public extension CollectionModel {
@@ -23,7 +25,7 @@ public extension CollectionModel {
         return items.count
     }
     
-    public func itemAtIndexPath(_ indexPath: IndexPath) -> Any? {
+    public func itemAtIndexPath(_ indexPath: IndexPath) -> ItemType? {
         if indexPath.row < items.count {
             return items[indexPath.row]
         }

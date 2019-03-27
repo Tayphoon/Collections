@@ -10,30 +10,31 @@ import Foundation
 
 open class ObjectCollectionModel<ItemType, Builder: CollectionObjectBuilder>: CollectionViewModel {
 
-    public var items: [CollectionSectionObject]?
+    public var items: [SectionObject]
 
     public weak var delegate: CollectionViewModelDelegate?
 
-    public var cellObjectsBuilder: Builder?
+    public var cellObjectsBuilder: Builder
 
-    public init() {
-        
+    public init(builder: Builder) {
+        self.cellObjectsBuilder = builder;
+        self.items = []
     }
 
     open func numberOfSections() -> Int {
-        return items?.count ?? 0
+        return items.count
     }
 
     open func numberOfItemsInSection(_ section: Int) -> Int {
-        if let count = items?.count, section < count {
-            return items?[section].cellObjects?.count ?? 0
+        if section < items.count {
+            return items[section].cellObjects?.count ?? 0
         }
 
         return 0
     }
 
     open func reuseIdentifierForCellAtIndexPath(_ indexPath: IndexPath) -> String {
-        let cellObject = itemAtIndexPath(indexPath) as? CollectionCellObject
+        let cellObject = itemAtIndexPath(indexPath) as? CellObject
 
         if let reuseIdentifier = cellObject?.reuseIdentifier {
             return reuseIdentifier
@@ -44,7 +45,7 @@ open class ObjectCollectionModel<ItemType, Builder: CollectionObjectBuilder>: Co
 
     open func itemAtIndexPath(_ indexPath: IndexPath) -> Any? {
         if indexPath.section < numberOfSections() && indexPath.row < numberOfItemsInSection(indexPath.section) {
-            let cellObject = items?[indexPath.section].cellObjects?[indexPath.row]
+            let cellObject = items[indexPath.section].cellObjects?[indexPath.row]
 
             return cellObject
         }
@@ -57,6 +58,6 @@ open class ObjectCollectionModel<ItemType, Builder: CollectionObjectBuilder>: Co
     }
 
     open func configure(with items: [ItemType]) {
-        self.items = cellObjectsBuilder?.buildSectionObjects(for: items)
+        self.items = cellObjectsBuilder.buildSectionObjects(for: items)
     }
 }

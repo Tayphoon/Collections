@@ -1,5 +1,5 @@
 //
-//  SectionHeaderFooterView.swift
+//  CollectionReusableView.swift
 //  Collections
 //
 //  Created by Tayphoon on 13/04/2018.
@@ -8,7 +8,9 @@
 
 import Foundation
 
-public protocol SectionHeaderFooterView {
+public protocol CollectionReusableView {
+
+    associatedtype ItemType
     
-    func configure(with _: Any)
+    func configure(with _: ItemType)
 }
