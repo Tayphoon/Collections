@@ -15,15 +15,15 @@ public protocol TableModel: TableViewModel {
 
 public extension TableModel {
     
-    public func numberOfSections() -> Int {
+    func numberOfSections() -> Int {
         return 1
     }
     
-    public func numberOfItemsInSection(_ section: Int) -> Int {
+    func numberOfItemsInSection(_ section: Int) -> Int {
         return items.count
     }
     
-    public func itemAtIndexPath(_ indexPath: IndexPath) -> Any? {
+    func itemAtIndexPath(_ indexPath: IndexPath) -> Any? {
         if indexPath.row < items.count {
             return items[indexPath.row]
         }
@@ -31,7 +31,7 @@ public extension TableModel {
         return nil
     }
     
-    public func indexPathOfObject(_ object: Any) -> IndexPath? {
+    func indexPathOfObject(_ object: Any) -> IndexPath? {
         return nil
     }
 }

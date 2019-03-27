@@ -30,7 +30,7 @@ public protocol CollectionViewModel {
 
 public extension CollectionViewModel {
     
-    public func modelDidChanged() {
+    func modelDidChanged() {
         delegate?.modelDidChanged(self)
     }
 }

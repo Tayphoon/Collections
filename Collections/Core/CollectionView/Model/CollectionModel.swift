@@ -17,15 +17,15 @@ public protocol CollectionModel: CollectionViewModel {
 
 public extension CollectionModel {
     
-    public func numberOfSections() -> Int {
+    func numberOfSections() -> Int {
         return 1
     }
     
-    public func numberOfItemsInSection(_ section: Int) -> Int {
+    func numberOfItemsInSection(_ section: Int) -> Int {
         return items.count
     }
     
-    public func itemAtIndexPath(_ indexPath: IndexPath) -> ItemType? {
+    func itemAtIndexPath(_ indexPath: IndexPath) -> ItemType? {
         if indexPath.row < items.count {
             return items[indexPath.row]
         }
